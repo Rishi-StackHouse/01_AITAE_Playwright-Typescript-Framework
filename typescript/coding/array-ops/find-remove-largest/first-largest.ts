@@ -1,26 +1,24 @@
 // First Largest - Find and return the largest (maximum) number in an array
-
-console.log('*************First Largest******************');
+console.log('************* First Largest ******************');
 function findFirstLargest(arr: number[]): number | null {
 
-    /* 1. count length of array  manually, since iteration needed for finding the largest element
-          if its 0 return null (not an proper array) */
+    /* 1. we need length for iteration and to check if the array is valid */
     let len = 0;
     for (; arr[len] !== undefined; len++) {}
     if (len === 0) return null;
 
-    // 2. assume the first element is the largest
-    let largest = arr[0];
+    /* 2. assuming first element is the largest */
+    let first = arr[0];
 
-    /* 3. see is there any other element in the array is greater than the assumed one
-          if yes make it as the largest one and return it */
+    /* 3. compare every other element with the assumed one
+          if we found a bigger one, then update largest */
     for (let i = 1; i < len; i++) {
-        if (arr[i] > largest) {
-            largest = arr[i];   // found a bigger one, update largest
+        if (arr[i] > first) {
+            first = arr[i];
         }
     }
 
-    return largest;
+    return first;
 }
 
 console.log(findFirstLargest([3, 1, 4, 1, 5, 9, 2, 6]));   // 9
@@ -34,36 +32,37 @@ console.log(findFirstLargest([60, 70, 80, 90, 90]));                  // 90 (lar
 /**************************************************************************************/
 
 // Remove First Largest - Find and remove the largest number from an array
-
-console.log('*************Remove First Largest******************');
+console.log('************* Remove First Largest ******************');
 function removeFirstLargest(arr: number[]): number[] {     // [number[], number | null]
 
-    /* 1. count length of array manually, since iteration needed for finding the largest element
-          if its 0 return empty array (nothing to remove) */
+    /* 1. we need length for iteration and to check if the array is valid */
     let len = 0;
     for (; arr[len] !== undefined; len++) {}
     if (len === 0) return [];    // if (len === 0) return [[], null];
 
-    // 2. assume the first element is the largest and track its index for removal purpose
-    let largest = arr[0];
-    let largestIndex = 0;
+    /* 2. assuming first element is the largest and tracking its index for removal */
+    let first = arr[0];
+    let firstIndex = 0;
 
-    /* 3. compare with every other element with the assumed one
-          if its greater, update both the largest value and its index to the largest one */
+    /* 3. compare every other elements with the assumed one
+          if its greater, update both the largest value and its index to the newly found largest one */
     for (let i = 1; i < len; i++) {
-        if (arr[i] > largest) {
-            largest = arr[i];
-            largestIndex = i;
+        if (arr[i] > first) {
+            first = arr[i];
+            firstIndex = i;
         }
     }
 
-    /* 4. build a new array and set an iterator, iterate through the original array and 
-          copy all elements to the new array except the one at largestIndex, return the result */
+    /* 4. declare a new array and set an iterator
+          for building a new output (array without the first largest element) */
     const result: number[] = [];
     let resultLen = 0;
 
+    /* 5. iterate through the original array
+          skip the element at the firstIndex, 
+          copy all the elements in the other indices into the result array */
     for (let i = 0; i < len; i++) {
-        if (i !== largestIndex) {
+        if (i !== firstIndex) {
             result[resultLen] = arr[i];
             resultLen++;
         }

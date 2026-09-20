@@ -1,38 +1,45 @@
 // Find Duplicates - Return a new array listing with the values that appear MORE than once
 
-console.log('*************Find Duplicates******************');
+console.log('************* Find Duplicates ******************');
 function findDuplicates(arr: (string | number)[]): (string | number)[]{
 
-    // 1. count length manually
+    /* 1. we need length for iteration and to check if the array is valid */
     let len = 0;
-    for (; arr[len] !== undefined; len++) { /* count items */ }
-    if (len < 2) return [];   // if less than 2 items, no duplicates possible
+    for (; arr[len] !== undefined; len++) {}
+    if (len < 2) return []; 
 
-    // 2. result array that will hold the duplicate values
+    /* 2. declare a new array and set an iterator - for building a new output (array with duplicate values) */
     let duplicates: (string | number)[] = [];
-    let dupLen = 0;   // manual counter for how many duplicates found
+    let dupLen = 0;   
 
-    // 3. compare each item with every other item that comes AFTER it
+    /* 3. compare each item with every other items that comes AFTER it
+          initialize a counter for tracking the duplicate occurrences*/
     for (let i = 0; i < len; i++) {
-        let count = 1;   // arr[0] itself counts as one occurrence, and reset for each element
+        let count = 1; //since arr[i] itself counts as one occurrence
 
+        /* 4. iteration for other elements in order to compare with the current element
+              if the current element matches with any of the other elements, increment the counter */
         for (let j = i + 1; j < len; j++) {
             if (arr[i] === arr[j]) {   // strict compare keeps 1 and "1" separate
                 count++;
             }
         }
-        // 4. if it appeared more than once, it is a duplicate
+        /* 5. if it appeared more than once, it is a duplicate , 
+        the duplicate numbers are filtered here */
         if (count > 1) {
 
-            // 5. make sure we did not already record this current value of arr[i] in duplicates array
+            /* 6. make sure we did not already record this current value of arr[i] in duplicates array */
             let alreadyRecorded = false;  
-            
-            for (let k = 0; k < dupLen; k++) {    // Step 2: Loop through duplicates array
-                if (duplicates[k] === arr[i]) {   // Step 3: Is current value already there?
-                    alreadyRecorded = true;       // Step 4: Yes! Mark it
-                    break;                        // Step 5: Stop looking, we found it
+
+            /* 7. checking the current element arr[i] with all the other elements in the duplicates array 
+               to see if it is already recorded, if yes skip it and return the duplicates */
+            for (let k = 0; k < dupLen; k++) {    
+                if (duplicates[k] === arr[i]) {   
+                    alreadyRecorded = true;       
+                    break;                        
                 }
             }
+            /* 8. if no - then add it*/
             if (alreadyRecorded===false) {        // Step 6: If NOT found in duplicates array ...
                 duplicates[dupLen] = arr[i];      // Step 7: ...add it
                 dupLen++;                         // Step 8: Since we added for only for the first time, increment the duplicates counter
@@ -55,20 +62,22 @@ console.log(findDuplicates([1, 2, 3, 4]));                     // [] (no duplica
 console.log('*************Remove Duplicates******************');
 function removeDuplicates(arr: (string | number)[]): (string | number)[] {
 
-    // 1. count length manually (no .length usage while looping logic)
+    /* 1. we need length for iteration and to check if the array is valid */
     let len = 0;
     for (; arr[len] !== undefined; len++) { /* count items */ }
-    if (len < 2) return [];   // if less than 2 items, no duplicates possible
+    if (len < 2) return []; 
 
-    // 2. result array that will hold only unique values
+    /* 2. declare a new array and set an iterator - for building a new output (array with unique values) */
     const removed: (string | number)[] = [];
     let removedLen = 0;   // manual counter for how many items are in result
 
-    // 3. go through every item in the original array
+    /* 3. go through every item in the original array, to check if its already present in the removed array */
     for (let i = 0; i < len; i++) {
+
+    /* 4. make sure we did not already record this current value of arr[i] in new unique array */    
         let alreadyExists = false;
 
-        // check if arr[i] is already present in result
+        /* 5. check if arr[i] is already present in removed array, if yes - then break no need to add, if not */
         for (let k = 0; k < removedLen; k++) {
             if (removed[k] === arr[i]) {   // strict compare keeps 1 and "1" separate
                 alreadyExists = true;
@@ -76,7 +85,7 @@ function removeDuplicates(arr: (string | number)[]): (string | number)[] {
             }
         }
 
-        // 4. only add it when it was not seen before
+        /* 6. only add it when it was not seen before */
         if (alreadyExists === false) {
             removed[removedLen] = arr[i];
             removedLen++;

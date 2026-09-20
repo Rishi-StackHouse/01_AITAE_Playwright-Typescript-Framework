@@ -1,3 +1,0 @@
-/*
-Common navigation class methods
-*/

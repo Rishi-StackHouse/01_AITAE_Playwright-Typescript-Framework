@@ -3,15 +3,16 @@
 console.log('*************Count Specific Item Occurrence******************');
 function countItemOccurrences(arr: (string | number)[], item: string | number): number {
 
-    // 1. count length manually
+    /* 1. count length manually */
     let len = 0;
     for (; arr[len] !== undefined; len++) { }
     if (len === 0) return 0;
 
-    // 2. count occurrences of the specific item
+    /* 2. counter for counting the occurrence of a specific item */
     let count = 0;
 
-    // 3. go through every item in the array
+    /* 3. go through every item in the array and compare with the specific item, 
+          if match found increment the counter */
     for (let i = 0; i < len; i++) {
         if (arr[i] === item) {   // strict compare keeps 1 and "1" separate
             count++;

@@ -1,9 +1,0 @@
-/*
-Methods to handle common UI components like
-    left navigation panel
-    toaster message
-    warning dialogs
-    footer
-    header
-    hamburger
-*/

@@ -1,6 +1,5 @@
 /* Find Missing Number - Given an array of numbers from 1 to N with exactly one
    number missing, find and return that missing number */
-
 console.log('*************Find Missing Number******************');
 function findMissingNumber(arr: number[]): number | null {
 

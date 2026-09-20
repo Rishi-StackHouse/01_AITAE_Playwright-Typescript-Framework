@@ -17,8 +17,8 @@
         "rootDir": "."
     },
     "include": [
-        "apps/**/*",
-        "config/**/*",
+        "src/**/*",
+        "src/config/**/*",
         "Depcrecated/**/*",
         "testsuites/**/*",
         "playwright.config.ts",
@@ -26,7 +26,7 @@
         "Handson/Coding/Palindrome.ts",
         "Handson/Coding/Factorial.ts",
         "Handson/Coding/Anagram.ts"
-    ],
+, "tests/temp"    ],
     "exclude": [
         "node_modules",
         "dist",

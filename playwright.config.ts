@@ -8,7 +8,7 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
-  testDir: './testsuites',              /* Configure test folder */
+  testDir: './tests',              /* Configure test folder */
   timeout: 60000,                 /* Default timeout for all the test */
   expect: { timeout: 2500 },
   fullyParallel: false,                /* Run tests in files in parallel */
@@ -31,10 +31,7 @@ export default defineConfig({
     trace: 'retain-on-failure',
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
-    ignoreHTTPSErrors: true
-
-    // actionTimeout: 5000,    // for actions like click, fill
-    // navigationTimeout: 30000, // for page navigations
+    ignoreHTTPSErrors: true,
   },
 
   // Projects Block: Managing browsers for test
@@ -56,7 +53,7 @@ export default defineConfig({
       },
     },
 
-    /* {
+     {
        name: 'firefox',
        use: { ...devices['Desktop Firefox'] },
      },
@@ -64,7 +61,7 @@ export default defineConfig({
      {
        name: 'webkit',
        use: { ...devices['Desktop Safari'] },
-     }, */
+     }, 
 
     /* Test against mobile viewports. */
     // {

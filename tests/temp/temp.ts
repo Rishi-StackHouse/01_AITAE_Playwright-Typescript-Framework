@@ -5,6 +5,7 @@ export class LoginPage {
 
     /**
      * Logs into the OrangeHRM demo app and verifies the dashboard loads.
+     * Born to win
      */
     async login(): Promise<void> {
         // Navigate to the login page

@@ -29,6 +29,9 @@
     ],
     "author": "Rishi",
     "license": "ISC",
+    "engines": {
+        "node": "^22.13.0 || ^24.0.0 || >=26.0.0"
+    },
     "devDependencies": {
         "@cucumber/cucumber": "^13.2.1",
         "@cucumber/html-formatter": "^22.0.2",
@@ -38,10 +41,13 @@
         "@types/luxon": "^3.7.2",
         "@types/mssql": "^9.1.8",
         "@types/node": "^26.2.0",
+        "@types/pngjs": "^6.0.5",
         "allure-commandline": "^2.43.0",
         "allure-cucumberjs": "^3.10.2",
         "allure-playwright": "^3.10.2",
         "luxon": "^3.7.2",
+        "pixelmatch": "^5.3.0",
+        "pngjs": "^7.0.0",
         "tsx": "^4.23.12",
         "typescript": "^7.0.2"
     },
@@ -50,6 +56,6 @@
         "dotenv": "^17.4.2",
         "mssql": "^12.7.0",
         "mysql2": "^3.23.3",
-        "nodemailer": "^9.0.5"
+        "nodemailer": "^9.1.1"
     }
 }

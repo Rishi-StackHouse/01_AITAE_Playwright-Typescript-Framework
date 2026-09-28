@@ -1,13 +1,13 @@
 import { Page, Locator } from '@playwright/test';
-import { orgeBase } from '../orgeBase';
+import { OrgeBase } from '../OrgeBase';
 
-export class orgeComponents extends orgeBase {
+export class OrgeComp extends OrgeBase {
   private readonly leftNav: Locator;
   private readonly navTimeout = this.timeouts.LEFT_NAV;
 
   constructor(page: Page) {
     super(page);
-    this.leftNav = page.locator('REPLACE_WITH_REAL_LEFT_NAV_SELECTOR');
+    this.leftNav = page.locator('');
   }
   
   public async selectLeftNavItem(name: string, timeout: number = this.navTimeout): Promise<void> {

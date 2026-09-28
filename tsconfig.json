@@ -11,25 +11,18 @@
         "strict": true,
         "esModuleInterop": true,
         "skipLibCheck": true,
-        "forceConsistentCasingInFileNames": false,
+        "forceConsistentCasingInFileNames": true,
         "resolveJsonModule": true,
         "outDir": "./dist",
         "rootDir": "."
     },
     "include": [
         "src/**/*",
-        "src/config/**/*",
-        "Depcrecated/**/*",
-        "testsuites/**/*",
         "playwright.config.ts",
-        "Handson/Coding/Fibonacci.ts",
-        "Handson/Coding/Palindrome.ts",
-        "Handson/Coding/Factorial.ts",
-        "Handson/Coding/Anagram.ts"
-, "tests/temp"    ],
+        "tests/temp"
+    ],
     "exclude": [
         "node_modules",
-        "dist",
-        "Automation_Playwright"
+        "dist"
     ]
 }
